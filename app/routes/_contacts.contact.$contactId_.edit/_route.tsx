@@ -1,10 +1,10 @@
 import { RouteArgs } from "react-router/reverb";
-import { loaders } from "../_contacts.contact.$contactId/_data";
-import { actions } from "./_data";
+import { actions } from "./_actions";
 import { CancelButton } from "./CancelButton";
+import { getContact } from "~/lib/contacts";
 
 export async function route({ params }: RouteArgs) {
-    const contact = await loaders.getContact(parseInt(params.contactId!));
+    const contact = await getContact(params.contactId);
 
     return (
         <form action={actions.update} id="contact-form">

@@ -1,13 +1,13 @@
 import type { RouteArgs } from "react-router/reverb";
-import { loaders } from "./_data";
 import { Toolbar } from "./Toolbar";
 import { NavLink } from "react-router";
 import { DetailContainer } from "./DetailContainer";
+import { getContacts } from "~/lib/contacts";
 
 export async function route({ request, children }: RouteArgs) {
     const url = new URL(request.url);
     const q = url.searchParams.get("q") ?? undefined;
-    const contacts = await loaders.getContacts(q);
+    const contacts = await getContacts(q);
 
     return (
         <div id="root">

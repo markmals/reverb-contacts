@@ -27,13 +27,22 @@ export async function createContact() {
         .returning();
 }
 
-export async function getContact(id?: number) {
+export async function getContact(id?: string) {
     await fakeNetwork(`contact:${id}`);
-    return await db
+    const contact = await db
         .select()
         .from(Contacts)
-        .where(eq(Contacts.id, id ?? -1))
+        .where(eq(Contacts.id, parseInt(id!)))
         .get();
+
+    if (!contact) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Not Found",
+        });
+    }
+
+    return contact;
 }
 
 export async function updateContact(id: number, updates: Partial<Contact>) {

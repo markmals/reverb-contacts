@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { actions } from "./_data";
+import { actions } from "./_actions";
 
 export function Toolbar() {
     const location = useLocation();

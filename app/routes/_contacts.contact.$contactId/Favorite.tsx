@@ -1,6 +1,6 @@
 "use client";
 
-import { actions } from "./_data";
+import { actions } from "./_actions";
 import { useFormStatus } from "react-dom";
 import { useEffect, useOptimistic } from "react";
 

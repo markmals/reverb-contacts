@@ -1,12 +1,6 @@
 "use server";
 
-import { createContact, getContacts } from "~/lib/contacts";
-
-export const loaders = {
-    async getContacts(query?: string) {
-        return await getContacts(query);
-    },
-};
+import { createContact } from "~/lib/contacts";
 
 export const actions = {
     async create() {
