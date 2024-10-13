@@ -1,4 +1,4 @@
-import { MetaFunction, RouteComponentProps } from "react-router/reverb";
+import { MetaFunction, RouteArgs } from "react-router/reverb";
 import { actions, loaders } from "./_data";
 import { Favorite } from "./Favorite";
 
@@ -7,7 +7,7 @@ export const meta: MetaFunction = async ({ params }) => {
     return [{ title: `${contact.first} ${contact.last} | Reverb Contacts` }];
 };
 
-export default async function ViewContact({ params }: RouteComponentProps) {
+export async function route({ params }: RouteArgs) {
     const contact = await loaders.getContact(parseInt(params.contactId!));
     const hasAvatar = !!contact.avatar;
 

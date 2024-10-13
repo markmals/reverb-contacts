@@ -1,5 +1,5 @@
 import styles from "./index.css?url";
-import { MetaFunction, RouteComponentProps } from "react-router/reverb";
+import { MetaFunction, RouteArgs } from "react-router/reverb";
 import { Links, LinksFunction, Meta, Scripts, ScrollRestoration } from "react-router";
 
 export const meta: MetaFunction = () => [
@@ -13,7 +13,7 @@ export const links: LinksFunction = () => [
     { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
 ];
 
-export default function App({ children }: RouteComponentProps) {
+export async function route({ children }: RouteArgs) {
     return (
         <html lang="en">
             <head>

@@ -1,9 +1,9 @@
-import { RouteComponentProps } from "react-router/reverb";
+import { RouteArgs } from "react-router/reverb";
 import { loaders } from "../_contacts.contact.$contactId/_data";
 import { actions } from "./_data";
 import { CancelButton } from "./CancelButton";
 
-export default async function EditContact({ params }: RouteComponentProps) {
+export async function route({ params }: RouteArgs) {
     const contact = await loaders.getContact(parseInt(params.contactId!));
 
     return (

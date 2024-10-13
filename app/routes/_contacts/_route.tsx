@@ -1,10 +1,10 @@
-import type { RouteComponentProps } from "react-router/reverb";
+import type { RouteArgs } from "react-router/reverb";
 import { loaders } from "./_data";
 import { Toolbar } from "./Toolbar";
 import { NavLink } from "react-router";
 import { DetailContainer } from "./DetailContainer";
 
-export default async function ContactsLayout({ request, children }: RouteComponentProps) {
+export async function route({ request, children }: RouteArgs) {
     const url = new URL(request.url);
     const q = url.searchParams.get("q") ?? undefined;
     const contacts = await loaders.getContacts(q);

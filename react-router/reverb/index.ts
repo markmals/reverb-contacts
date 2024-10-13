@@ -2,7 +2,7 @@ import type { MetaMatches } from "node_modules/react-router/dist/lib/dom/ssr/rou
 import type { PropsWithChildren } from "react";
 import type { LoaderFunction, MetaDescriptor, Location } from "react-router";
 
-export type RouteComponentProps = PropsWithChildren<{
+export type RouteArgs = PropsWithChildren<{
     request: Request;
     // TODO: Plugin to make this type-safe, e.g. { id: string, brand?: string }
     params: Record<string, string>;
