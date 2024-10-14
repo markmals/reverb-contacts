@@ -1,24 +1,16 @@
 import styles from "./index.css?url";
-import { MetaFunction, RouteArgs } from "react-router/reverb";
-import { Links, LinksFunction, Meta, Scripts, ScrollRestoration } from "react-router";
-
-export const meta: MetaFunction = () => [
-    { charSet: "utf-8" },
-    { title: "Reverb Contacts" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-];
-
-export const links: LinksFunction = () => [
-    { rel: "stylesheet", href: styles },
-    { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-];
+import { RouteArgs } from "react-router/reverb";
+import { Scripts, ScrollRestoration } from "react-router";
 
 export async function route({ children }: RouteArgs) {
     return (
         <html lang="en">
             <head>
-                <Meta />
-                <Links />
+                <title>Reverb Contacts</title>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="stylesheet" href={styles} />
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
             </head>
             <body>
                 {children}
